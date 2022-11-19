@@ -1,0 +1,83 @@
+version: "3.8"
+
+services:
+  kafka01:
+    container_name: kafka01
+    image: jin-kafka:3.3.1
+    build: 
+      context: docker-build
+    ports:
+        - 29092:9092
+    networks:
+      kafka-net:
+        ipv4_address: 10.0.0.11
+    volumes:
+      - ./config/kafka01/server.properties:/kafka/config/kraft/server.properties
+      #- ./data/data_kafka_01:/kafka-data/kraft-combined-logs
+      - data_kafka_01:/kafka-data/kraft-combined-logs
+
+  kafka02:
+    container_name: kafka02
+    image: jin-kafka:3.3.1
+    build: 
+      context: docker-build
+    ports:
+        - 29192:9092
+    networks:
+      kafka-net:
+        ipv4_address: 10.0.0.12
+    volumes:
+      - ./config/kafka02/server.properties:/kafka/config/kraft/server.properties
+      #- ./data/data_kafka_02:/kafka-data/kraft-combined-logs
+      - data_kafka_02:/kafka-data/kraft-combined-logs
+
+  kafka03:
+    container_name: kafka03
+    image: jin-kafka:3.3.1
+    build: 
+      context: docker-build
+    ports:
+        - 29292:9092
+    networks:
+      kafka-net:
+        ipv4_address: 10.0.0.13
+    volumes:
+      - ./config/kafka03/server.properties:/kafka/config/kraft/server.properties
+      #- ./data/data_kafka_03:/kafka-data/kraft-combined-logs
+      - data_kafka_03:/kafka-data/kraft-combined-logs
+
+  my-kafka-ui:
+    image: provectuslabs/kafka-ui
+    container_name: my-kafka-ui
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka01:9092,kafka02:9092,kafka03:9092
+    networks:
+      kafka-net:
+        ipv4_address: 10.0.0.10
+        
+  kafka-kouncil:
+    image: consdata/kouncil:1.4
+    container_name: kafka-kouncil
+    ports:
+      - "8082:8080"
+    restart: always
+    environment:
+      - BOOTSTRAPSERVERS=kafka01:9092,kafka02:9092,kafka03:9092
+    networks:
+      kafka-net:
+        ipv4_address: 10.0.0.9
+
+networks:
+  kafka-net:
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
+
+volumes:
+  data_kafka_01:
+  data_kafka_02:
+  data_kafka_03:
