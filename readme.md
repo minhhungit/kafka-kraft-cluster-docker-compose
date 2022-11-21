@@ -2,7 +2,7 @@
 
 - 3 nodes
 - UI using `kafka UI` http://localhost:8080/
-- UI using `kouncil` http://localhost:8082/#/topics
+- UI using `kouncil` http://localhost:8082/
 
 ## How to run
 
@@ -24,6 +24,13 @@ Example for windows:
 ## Connection string (public)
 
 > kafka01:29192,kafka02:29292,kafka03:29392
+
+
+### .NET Demo (run outside docker)
+
+[Check here](https://github.com/minhhungit/kafka-kraft-cluster-docker-compose/tree/main/client/KafkaDemo)
+
+### Or run demo directly inside docker using bellow commands:
 
 ```
 docker run -it --rm --network kafka-kraft-cluster-docker-compose_default confluentinc/cp-kafka /bin/kafka-console-producer --bootstrap-server kafka01:9092 --topic test_topic
