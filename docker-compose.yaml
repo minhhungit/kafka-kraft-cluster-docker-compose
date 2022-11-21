@@ -7,7 +7,7 @@ services:
     build: 
       context: docker-build
     ports:
-        - 29092:29092
+        - 29192:29192
     # networks:
       # kafka-net:
         # ipv4_address: 10.0.0.11
@@ -22,7 +22,7 @@ services:
     build: 
       context: docker-build
     ports:
-        - 29192:29092
+        - 29292:29292
     # networks:
       # kafka-net:
         # ipv4_address: 10.0.0.12
@@ -37,7 +37,7 @@ services:
     build: 
       context: docker-build
     ports:
-        - 29292:29092
+        - 29392:29392
     # networks:
       # kafka-net:
         # ipv4_address: 10.0.0.13
