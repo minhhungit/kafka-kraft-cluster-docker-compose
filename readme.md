@@ -46,6 +46,6 @@ docker run -it --rm --network kafka-kraft-cluster-docker-compose_default conflue
 
 ```
 
-<img src="https://raw.githubusercontent.com/minhhungit/kafka-kraft-cluster-docker-compose/main/assets/docker-exec-demo.png" style="width: 100%;" />
+<img src="assets/docker-exec-demo.png" style="width: 100%;" />
 
-<img src="https://raw.githubusercontent.com/minhhungit/kafka-kraft-cluster-docker-compose/main/assets/dotnet-app.png" style="width: 100%;" />
+<img src="assets/dotnet-app.png" style="width: 100%;" />
