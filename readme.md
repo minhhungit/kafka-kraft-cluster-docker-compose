@@ -45,3 +45,7 @@ or run performance test
 docker run -it --rm --network kafka-kraft-cluster-docker-compose_default confluentinc/cp-kafka /bin/kafka-producer-perf-test --topic test_topic --num-records 1000000 --throughput -1 --producer-props bootstrap.servers=kafka01:9092 batch.size=16384 acks=1 linger.ms=50 --record-size 1000
 
 ```
+
+<img src="https://raw.githubusercontent.com/minhhungit/kafka-kraft-cluster-docker-compose/main/assets/docker-exec-demo.png" style="width: 100%;" />
+
+<img src="https://raw.githubusercontent.com/minhhungit/kafka-kraft-cluster-docker-compose/main/assets/dotnet-app.png" style="width: 100%;" />
