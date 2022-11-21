@@ -7,10 +7,10 @@ services:
     build: 
       context: docker-build
     ports:
-        - 29092:9092
-    networks:
-      kafka-net:
-        ipv4_address: 10.0.0.11
+        - 29092:29092
+    # networks:
+      # kafka-net:
+        # ipv4_address: 10.0.0.11
     volumes:
       - ./config/kafka01/server.properties:/kafka/config/kraft/server.properties
       #- ./data/data_kafka_01:/kafka-data/kraft-combined-logs
@@ -22,10 +22,10 @@ services:
     build: 
       context: docker-build
     ports:
-        - 29192:9092
-    networks:
-      kafka-net:
-        ipv4_address: 10.0.0.12
+        - 29192:29092
+    # networks:
+      # kafka-net:
+        # ipv4_address: 10.0.0.12
     volumes:
       - ./config/kafka02/server.properties:/kafka/config/kraft/server.properties
       #- ./data/data_kafka_02:/kafka-data/kraft-combined-logs
@@ -37,10 +37,10 @@ services:
     build: 
       context: docker-build
     ports:
-        - 29292:9092
-    networks:
-      kafka-net:
-        ipv4_address: 10.0.0.13
+        - 29292:29092
+    # networks:
+      # kafka-net:
+        # ipv4_address: 10.0.0.13
     volumes:
       - ./config/kafka03/server.properties:/kafka/config/kraft/server.properties
       #- ./data/data_kafka_03:/kafka-data/kraft-combined-logs
@@ -55,9 +55,9 @@ services:
     environment:
       - KAFKA_CLUSTERS_0_NAME=local
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka01:9092,kafka02:9092,kafka03:9092
-    networks:
-      kafka-net:
-        ipv4_address: 10.0.0.10
+    # networks:
+      # kafka-net:
+        # ipv4_address: 10.0.0.10
         
   kafka-kouncil:
     image: consdata/kouncil:1.4
@@ -67,15 +67,15 @@ services:
     restart: always
     environment:
       - BOOTSTRAPSERVERS=kafka01:9092,kafka02:9092,kafka03:9092
-    networks:
-      kafka-net:
-        ipv4_address: 10.0.0.9
+    # networks:
+      # kafka-net:
+        # ipv4_address: 10.0.0.9
 
-networks:
-  kafka-net:
-    ipam:
-      config:
-        - subnet: 10.0.0.0/24
+# networks:
+  # kafka-net:
+    # ipam:
+      # config:
+        # - subnet: 10.0.0.0/24
 
 volumes:
   data_kafka_01:
