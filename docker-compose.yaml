@@ -11,6 +11,7 @@ services:
     dns:
       - 8.8.8.8
       - 4.4.4.4
+    restart: always
     # networks:
       # kafka-net:
         # ipv4_address: 10.0.0.11
@@ -29,6 +30,7 @@ services:
     dns:
       - 8.8.8.8
       - 4.4.4.4        
+    restart: always
     # networks:
       # kafka-net:
         # ipv4_address: 10.0.0.12
@@ -47,6 +49,7 @@ services:
     dns:
       - 8.8.8.8
       - 4.4.4.4
+    restart: always
     # networks:
       # kafka-net:
         # ipv4_address: 10.0.0.13
