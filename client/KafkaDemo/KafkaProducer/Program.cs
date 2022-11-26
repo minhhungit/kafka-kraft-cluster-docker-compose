@@ -18,7 +18,7 @@ namespace KafkaDemo
             var config = new ProducerConfig
             {
                 BootstrapServers = "kafka01:29192,kafka02:29292,kafka03:29392",
-                Acks = Acks.Leader,
+                Acks = Acks.All,
                 SecurityProtocol = SecurityProtocol.Plaintext
             };
 

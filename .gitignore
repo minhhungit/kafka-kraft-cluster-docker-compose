@@ -5,3 +5,7 @@
 /client/KafkaDemo/.vs/KafkaDemo
 /client/KafkaDemo/KafkaDemo/bin/Debug/net6.0
 /client/KafkaDemo/KafkaDemo/obj
+/client/KafkaDemo/KafkaConsumer/bin/Debug/net6.0
+/client/KafkaDemo/KafkaConsumer/obj
+/client/KafkaDemo/KafkaProducer/bin/Debug/net6.0
+/client/KafkaDemo/KafkaProducer/obj

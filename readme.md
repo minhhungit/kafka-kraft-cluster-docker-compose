@@ -66,3 +66,7 @@ outside docker (from host => container)
 ---
 
 <img src="assets/dotnet-app.png" style="width: 100%;" />
+
+```
+$ .\kafka-consumer-groups.bat --bootstrap-server kafka01:29192,kafka02:29292,kafka03:29392 --group my-group1 --describe
+```
